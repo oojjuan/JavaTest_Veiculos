@@ -15,7 +15,7 @@ Este projeto foi feito com o intuito de praticar programação em Java, com foco
 - **Atributos**
     - ``modelo`` (String): nome ou modelo do veículo
     - ``ano`` (int): ano de fabricação do veículo
-    - ``disponivel`` (boolean): indica a disponibilidade para aluguel
+    - ``disponivel`` (enum): indica a disponibilidade para aluguel *(DISPONIVEL / ALUGADO)*
 - **Métodos**
     - Construtor
     - ``exibirInfo()``: método abstrato para exibição das informações dos veículos
