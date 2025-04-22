@@ -1,12 +1,12 @@
 public abstract class Veiculo implements Alugavel {
     private String modelo;
     private int ano;
-    private Disponivel disponivel;
+    private Disponibilidade disponivel;
 
     public Veiculo(String modelo, int ano) {
         this.modelo = modelo;
         this.ano = ano;
-        this.disponivel = Disponivel.DISPONIVEL;
+        this.disponivel = Disponibilidade.DISPONIVEL;
     }
 
     public abstract void exibirInfo();
@@ -14,8 +14,8 @@ public abstract class Veiculo implements Alugavel {
     // Verificar disponibilidade para alugar
     @Override
     public void alugar() {
-        if (this.disponivel == Disponivel.DISPONIVEL) {
-            this.disponivel = Disponivel.ALUGADO;
+        if (this.disponivel == Disponibilidade.DISPONIVEL) {
+            this.disponivel = Disponibilidade.ALUGADO;
         } else {
             throw new IllegalStateException("O veículo não esta disponível.");
         }
@@ -24,8 +24,8 @@ public abstract class Veiculo implements Alugavel {
     // Realizar devolução do veículo caso esteja alugado
     @Override
     public void devolver() {
-        if (this.disponivel == Disponivel.ALUGADO) {
-            this.disponivel = Disponivel.DISPONIVEL;
+        if (this.disponivel == Disponibilidade.ALUGADO) {
+            this.disponivel = Disponibilidade.DISPONIVEL;
         } else {
             throw new IllegalStateException("O veículo não esta alugado.");
         }
@@ -39,12 +39,12 @@ public abstract class Veiculo implements Alugavel {
         return ano;
     }
 
-    public Disponivel getDisponivel() {
+    public Disponibilidade getDisponivel() {
         return disponivel;
     }
 }
 
-enum Disponivel {
+enum Disponibilidade {
     DISPONIVEL,
     ALUGADO
 }
